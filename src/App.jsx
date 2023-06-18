@@ -5,19 +5,22 @@ import { Contact } from "./pages/Contact.page";
 import { Blog } from "./pages/Blog/Blog.page";
 import { SingleBlogPost } from "./pages/Blog/SingleBlogPost.page";
 import { Layout } from "./components/Layout.component";
+import { Products } from "./pages/Products/Products.pages";
 
 export const App = () => {
   return (
     <>
       <main>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="blog" element={<Blog />} />
             {/* Individual Blog Post pages */}
-            <Route path="/blog/:id" element={<SingleBlogPost />} />
+            <Route path="blog/:id" element={<SingleBlogPost />} />
+
+            <Route path="product" element={<Products />} />
           </Route>
         </Routes>
       </main>
