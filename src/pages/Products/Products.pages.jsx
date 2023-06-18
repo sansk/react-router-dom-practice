@@ -14,11 +14,12 @@ export const Products = () => {
             return (
               <div key={product.id} className="product-card">
                 <Link to={`/product/${product.id}`}>
-                  <img src={product.images[0]} alt={product.title} />
+                  <img src={product.thumbnail} alt={product.title} />
                   <h1>{product.title}</h1>
                   <p>{product.description.slice(0, 100)}</p>
                   <p className="product-price">${product.price}</p>
                   <button className="btn">{product.category}</button>
+                  <button className="btn-brand">{product.brand}</button>
                 </Link>
               </div>
             );

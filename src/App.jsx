@@ -6,6 +6,7 @@ import { Blog } from "./pages/Blog/Blog.page";
 import { SingleBlogPost } from "./pages/Blog/SingleBlogPost.page";
 import { Layout } from "./components/Layout.component";
 import { Products } from "./pages/Products/Products.pages";
+import { SingleProduct } from "./pages/Products/SingleProduct.pages";
 
 export const App = () => {
   return (
@@ -21,6 +22,7 @@ export const App = () => {
             <Route path="blog/:id" element={<SingleBlogPost />} />
 
             <Route path="product" element={<Products />} />
+            <Route path="product/:id" element={<SingleProduct />} />
           </Route>
         </Routes>
       </main>

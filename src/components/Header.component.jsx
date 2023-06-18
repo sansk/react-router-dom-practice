@@ -8,14 +8,9 @@ export const Header = () => {
         <Link to="/">MY BLOG</Link>
         <nav>
           <NavLink
-            to="/"
+            to="/brand"
             className={({ isActive }) => (isActive ? "selected" : null)}>
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) => (isActive ? "selected" : null)}>
-            About
+            Brand
           </NavLink>
           <NavLink
             to="/product"
@@ -23,10 +18,15 @@ export const Header = () => {
             Product
           </NavLink>
           <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "selected" : null)}>
+            About
+          </NavLink>
+          {/* <NavLink
             to="/blog"
             className={({ isActive }) => (isActive ? "selected" : null)}>
             Blog
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/contact"
             className={({ isActive }) => (isActive ? "selected" : null)}>
