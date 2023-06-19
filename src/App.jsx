@@ -7,6 +7,10 @@ import { SingleBlogPost } from "./pages/Blog/SingleBlogPost.page";
 import { Layout } from "./components/Layout.component";
 import { Products } from "./pages/Products/Products.pages";
 import { SingleProduct } from "./pages/Products/SingleProduct.pages";
+import { SingleProductInfo } from "./pages/Products/SingleProductInfo.page";
+import { SingleProductDetail } from "./pages/Products/SingleProductDetail.page";
+import { SingleProductImage } from "./pages/Products/SingleProductImage.page";
+import { Brand } from "./pages/Brand/Brand.page";
 
 export const App = () => {
   return (
@@ -22,7 +26,13 @@ export const App = () => {
             <Route path="blog/:id" element={<SingleBlogPost />} />
 
             <Route path="product" element={<Products />} />
-            <Route path="product/:id" element={<SingleProduct />} />
+            <Route path="product/:id" element={<SingleProduct />}>
+              <Route index element={<SingleProductInfo />} />
+              <Route path="detail" element={<SingleProductDetail />} />
+              <Route path="images" element={<SingleProductImage />} />
+            </Route>
+
+            <Route path="brand" element={<Brand />} />
           </Route>
         </Routes>
       </main>

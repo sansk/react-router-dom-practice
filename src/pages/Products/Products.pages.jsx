@@ -3,7 +3,6 @@ import { useBlogContext } from "../../context/BlogContext";
 
 export const Products = () => {
   const { products } = useBlogContext();
-  console.log(products);
 
   return (
     <section className="section-blog">

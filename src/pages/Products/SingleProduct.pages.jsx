@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink, Link, Outlet } from "react-router-dom";
 import { useBlogContext } from "../../context/BlogContext";
 
 import { useState } from "react";
@@ -11,30 +11,40 @@ export const SingleProduct = () => {
 
   useEffect(() => {
     const url = `https://dummyjson.com/products/${params.id}`;
-    console.log({ url });
     axios(url).then((response) => setSingleProduct(response.data));
   }, []);
 
-  console.log("In Single Post: ", singleProduct);
-
   return (
     <section className="blog-single-post">
+      <Link to=".." relative="path" className="back-button">
+        &larr; <span>Back to All Products</span>
+      </Link>
+
       {singleProduct ? (
         <>
           <h1>{singleProduct.title}</h1>
           <img src={singleProduct.thumbnail} alt={singleProduct.title} />
-          <p>{singleProduct.description}</p>
-          <p>
-            Brand:
-            <span>{singleProduct.brand}</span>
-          </p>
-          <p>
-            Category: <span>{singleProduct.category}</span>
-          </p>
-          <p>
-            Price:
-            <span>${singleProduct.price}</span>
-          </p>
+
+          <nav className="single-prod-menu">
+            <NavLink
+              to="."
+              end
+              className={({ isActive }) => (isActive ? "sub-select" : null)}>
+              Info
+            </NavLink>
+            <NavLink
+              to="detail"
+              className={({ isActive }) => (isActive ? "sub-select" : null)}>
+              Details
+            </NavLink>
+            <NavLink
+              to="images"
+              className={({ isActive }) => (isActive ? "sub-select" : null)}>
+              Images
+            </NavLink>
+          </nav>
+
+          <Outlet context={{ singleProduct }} />
         </>
       ) : (
         <div className="loading"></div>
