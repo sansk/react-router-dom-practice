@@ -1,5 +1,11 @@
 import { useEffect } from "react";
-import { useParams, NavLink, Link, Outlet } from "react-router-dom";
+import {
+  useParams,
+  NavLink,
+  Link,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import { useBlogContext } from "../../context/BlogContext";
 
 import { useState } from "react";
@@ -9,6 +15,9 @@ export const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState(null);
   const params = useParams();
 
+  const location = useLocation();
+  const queryParam = location.state?.search || "";
+
   useEffect(() => {
     const url = `https://dummyjson.com/products/${params.id}`;
     axios(url).then((response) => setSingleProduct(response.data));
@@ -16,7 +25,7 @@ export const SingleProduct = () => {
 
   return (
     <section className="blog-single-post">
-      <Link to=".." relative="path" className="back-button">
+      <Link to={`..${queryParam}`} relative="path" className="back-button">
         &larr; <span>Back to All Products</span>
       </Link>
 

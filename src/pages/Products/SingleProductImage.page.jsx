@@ -9,7 +9,7 @@ export const SingleProductImage = () => {
         <h1>Images</h1>
         <div className="image-list">
           {singleProduct.images.map((image) => (
-            <img src={image} alt="Image" />
+            <img key={image} src={image} alt="Image" />
           ))}
         </div>
       </div>

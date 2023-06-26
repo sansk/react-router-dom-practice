@@ -32,6 +32,10 @@ export const Header = () => {
             className={({ isActive }) => (isActive ? "selected" : null)}>
             Contact
           </NavLink>
+
+          <NavLink to="login" className="login-link">
+            <img src="/avatar-icon.png" className="login-icon" />
+          </NavLink>
         </nav>
       </header>
     </>

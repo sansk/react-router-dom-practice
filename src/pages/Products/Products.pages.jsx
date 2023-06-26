@@ -6,7 +6,7 @@ export const Products = () => {
   const brandFilter = searchparams.get("brand");
 
   const { products } = useBlogContext();
-  console.log(products);
+  // console.log(searchparams);
 
   let brandProducts = products;
 
@@ -67,7 +67,9 @@ export const Products = () => {
           brandProducts.map((product) => {
             return (
               <div key={product.id} className="product-card">
-                <Link to={`${product.id}`}>
+                <Link
+                  to={`${product.id}`}
+                  state={{ search: `?${searchparams.toString()}` }}>
                   <img src={product.thumbnail} alt={product.title} />
                   <h1>{product.title}</h1>
                   <p>{product.description.slice(0, 100)}</p>
